@@ -3,7 +3,7 @@ package helloworld;
 public class HelloWorld {
 	public static void main(String[] args)
 	{
-		int n =oddCount(3);
+		int n = oddCount(3);
 		System.out.println(n);
 	}
 	
@@ -19,4 +19,14 @@ public class HelloWorld {
 	public static int oddCount(int n){
 		return n/2;
 	  }
+	
+	public static String doubleChar(String s) {
+		String result="";
+		for (char c : s.toCharArray()) {
+			result+= c;
+			result+= c;
+		}
+		
+		return result; 
+	}
 }
