@@ -2,8 +2,7 @@ package helloworld;
 
 public class HelloWorld {
 	public static void main(String[] args) {
-		int n = oddCount(3);
-		System.out.println(n);
+		camelCase("camelCase");
 	}
 
 	public static String duckDuckGoose(Player[] players, int goose) {
@@ -31,5 +30,9 @@ public class HelloWorld {
 
 	public static boolean solution(String str, String ending) {
 		return str.endsWith(ending);
+	}
+
+	public static String camelCase(String input) {
+		return input.replaceAll("[A-Z]"," $0");
 	}
 }
