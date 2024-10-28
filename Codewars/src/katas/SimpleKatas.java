@@ -1,14 +1,28 @@
 package katas;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SimpleKatas {
 	static int count = 1;
 
 	public static void main(String[] args) {
 		camelCase("camelCase");
+
+		int[] result = SortTheOdd.sortArray(new int[] { 7, 3 });
+		String resultString = Arrays.stream(result).mapToObj(String::valueOf).collect(Collectors.joining(", "));
+		System.out.print(resultString);
+
+//		Integer[] what = Arrays.stream( result ).boxed().toArray( Integer[]::new );
+//		List<Integer> list = Arrays.asList(what);
+//
+//		list.stream().map(Object::toString)
+//        .collect(Collectors.joining(", "));
+
 	}
 
 	public static String duckDuckGoose(Player[] players, int goose) {
