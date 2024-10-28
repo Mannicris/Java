@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.stream.Collectors;
 
-public class HelloWorld {
+public class SimpleKatas {
 	static int count = 1;
 
 	public static void main(String[] args) {
