@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.stream.Collectors;
 
 public class HelloWorld {
+	static int count = 1;
+
 	public static void main(String[] args) {
 		camelCase("camelCase");
 	}
@@ -41,9 +43,33 @@ public class HelloWorld {
 	}
 
 	public static String longest(String s1, String s2) {
-		String s = s1+s2;
+		String s = s1 + s2;
 		StringBuilder sb = new StringBuilder();
-		s.chars().distinct().sorted().forEach(c -> sb.append((char)c));
+		s.chars().distinct().sorted().forEach(c -> sb.append((char) c));
+		return sb.toString();
+	}
+
+	public static String accum(String s) {
+
+		StringBuilder sb = new StringBuilder();
+		s.chars().forEach(c -> {
+			if (count > 1)
+				sb.append('-');
+
+			for (int i = 1; i <= count; i++) {
+				char upperOrLower = (char) c;
+				if (i == 1)
+					upperOrLower = Character.toUpperCase(upperOrLower);
+				else
+					upperOrLower = Character.toLowerCase(upperOrLower);
+
+				sb.append((char) upperOrLower);
+			}
+
+			count++;
+		});
+
+		count = 1;
 		return sb.toString();
 	}
 }
