@@ -41,27 +41,7 @@ public class HelloWorld {
 	}
 
 	public static String longest(String s1, String s2) {
-		//add distinct characters from 2 lists
-		HashSet<Character> set = new HashSet<Character>();
-		for (char c : s1.toCharArray()) {
-			if (!set.contains(c))
-				set.add(c);
-		}
-
-		for (char c : s2.toCharArray()) {
-			if (!set.contains(c))
-				set.add(c);
-		}
-
-		//Sort alphabetically
-		Character[] charArray = set.toArray(new Character[set.size()]);
-		Arrays.sort(charArray);
-
-		//to char[]
-		char[] myCharArray = Arrays.stream(charArray).map(ch -> ch.toString()).collect(Collectors.joining())
-				.toCharArray();
-
-		String result = new String(myCharArray);
-		return result;
+		String s = s1+s2;
+		return s.chars().distinct().sorted().collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString();
 	}
 }
