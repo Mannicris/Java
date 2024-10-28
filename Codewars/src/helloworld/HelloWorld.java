@@ -1,5 +1,9 @@
 package helloworld;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.stream.Collectors;
+
 public class HelloWorld {
 	public static void main(String[] args) {
 		camelCase("camelCase");
@@ -33,6 +37,31 @@ public class HelloWorld {
 	}
 
 	public static String camelCase(String input) {
-		return input.replaceAll("[A-Z]"," $0");
+		return input.replaceAll("[A-Z]", " $0");
+	}
+
+	public static String longest(String s1, String s2) {
+		//add distinct characters from 2 lists
+		HashSet<Character> set = new HashSet<Character>();
+		for (char c : s1.toCharArray()) {
+			if (!set.contains(c))
+				set.add(c);
+		}
+
+		for (char c : s2.toCharArray()) {
+			if (!set.contains(c))
+				set.add(c);
+		}
+
+		//Sort alphabetically
+		Character[] charArray = set.toArray(new Character[set.size()]);
+		Arrays.sort(charArray);
+
+		//to char[]
+		char[] myCharArray = Arrays.stream(charArray).map(ch -> ch.toString()).collect(Collectors.joining())
+				.toCharArray();
+
+		String result = new String(myCharArray);
+		return result;
 	}
 }
